@@ -1,0 +1,41 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: quality-checks
+  cancel-in-progress: true
+
+jobs:
+  code_quality_check:
+    name: Quality Check
+    runs-on: self-hosted
+    permissions:
+      contents: read
+      issues: read
+      checks: write
+      pull-requests: write
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Code quality
+        uses: ./.github/actions/code_quality
+
+  e2e:
+    name: End-to-End Check
+    needs: code_quality_check
+    runs-on: self-hosted
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: End-to-End tests
+        uses: ./.github/actions/e2e
