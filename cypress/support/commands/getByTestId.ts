@@ -4,7 +4,7 @@ declare global {
   namespace Cypress {
     interface Chainable {
       getByTestId(
-        selector: typeof TestIds[keyof typeof TestIds],
+        selector: (typeof TestIds)[keyof typeof TestIds],
         options?: Partial<Loggable & Timeoutable & Withinable & Shadow>
       ): Chainable<JQuery>;
     }

@@ -12,7 +12,7 @@ concurrency:
 jobs:
   code_quality_check:
     name: Quality Check
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     permissions:
       contents: read
       issues: read
@@ -30,7 +30,7 @@ jobs:
   e2e:
     name: End-to-End Check
     needs: code_quality_check
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3

@@ -1,19 +1,13 @@
-import { Suspense } from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import { Routes } from 'react-router';
-import { Route } from 'react-router-dom';
+import { RouterErrorBoundary } from './RouterErrorBoundary/RouterErrorBoundary';
 
-import { LoadableHome } from '~/router/LoadablePages';
+const router = createBrowserRouter([
+  {
+    path: '/',
+    ErrorBoundary: RouterErrorBoundary,
+    lazy: () => import('~/pages/Home')
+  }
+]);
 
-export const AppRouter = () => (
-  <Routes>
-    <Route
-      path="/"
-      element={
-        <Suspense fallback={<div>Loading page</div>}>
-          <LoadableHome />
-        </Suspense>
-      }
-    />
-  </Routes>
-);
+export const AppRouter = () => <RouterProvider router={router} />;

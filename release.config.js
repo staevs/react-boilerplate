@@ -1,6 +1,6 @@
 module.exports = {
   branches: ['main'],
-  repositoryUrl: 'https://github.com/cybergizer-hq/team-front.git',
+  repositoryUrl: 'https://github.com/staevs/react-boilerplate',
   plugins: [
     '@semantic-release/commit-analyzer',
     [

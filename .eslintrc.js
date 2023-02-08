@@ -2,7 +2,10 @@ module.exports = {
   root: true,
   parser: '@babel/eslint-parser',
   plugins: ['react'],
-  extends: ['./configs/eslint/.eslintrc.base.js'],
+  extends: [
+    './configs/eslint/.eslintrc.base.js',
+    'plugin:storybook/recommended'
+  ],
   overrides: [
     {
       files: ['*.ts', '*.tsx'],

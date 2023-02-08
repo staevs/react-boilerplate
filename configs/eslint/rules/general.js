@@ -186,24 +186,6 @@ module.exports = {
     {
       paths: [
         {
-          name: '@chakra-ui/react',
-          importNames: [
-            'Alert',
-            'Avatar',
-            'Button',
-            'Checkbox',
-            'FormControl',
-            'IconButton',
-            'NumberInput',
-            'ProgressBar',
-            'Select',
-            'Slider',
-            'Tooltip'
-          ],
-          message:
-            "Please use the import from '~/shared/ui/components' instead."
-        },
-        {
           name: 'lodash',
           message:
             "Please, use the specific import from 'lodash' instead. Ex. import isEqual from 'lodash/isEqual'"

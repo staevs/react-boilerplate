@@ -1,9 +1,7 @@
 import * as React from 'react';
 
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
 
-import { AppErrorBoundary } from '~/shared/errors/AppErrorBoundary/AppErrorBoundary';
 import { AppThemeProvider } from '~/shared/theme/AppThemeProvider';
 
 import { App } from './App';
@@ -19,13 +17,9 @@ const root = ReactDOM.createRoot(
 
 const app = (
   <React.StrictMode>
-    <BrowserRouter>
-      <AppThemeProvider>
-        <AppErrorBoundary>
-          <App />
-        </AppErrorBoundary>
-      </AppThemeProvider>
-    </BrowserRouter>
+    <AppThemeProvider>
+      <App />
+    </AppThemeProvider>
   </React.StrictMode>
 );
 

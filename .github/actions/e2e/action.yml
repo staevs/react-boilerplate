@@ -13,6 +13,10 @@ runs:
 
     - name: Cypress run
       uses: cypress-io/github-action@v5
+      env:
+        CYPRESS_VERIFY_TIMEOUT: '60000'
+        NODE_OPTIONS: '--max-old-space-size=2560'
+        NODE_ENV: 'production'
       with:
         browser: electron
         build: npm run build:test

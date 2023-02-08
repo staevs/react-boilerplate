@@ -1,10 +1,10 @@
+import { cpus } from 'os';
 import path from 'path';
 
-import { type StorybookViteConfig } from '@storybook/builder-vite';
-import browserslistToEsbuild from 'browserslist-to-esbuild';
+import type { StorybookConfig } from '@storybook/react-vite';
 import { mergeConfig } from 'vite';
 
-const config: StorybookViteConfig = {
+const config: StorybookConfig = {
   stories: [
     path.resolve(__dirname, '../src/**/*.stories.mdx'),
     path.resolve(__dirname, '../src/**/*.stories.@(js|jsx|ts|tsx)')
@@ -15,29 +15,33 @@ const config: StorybookViteConfig = {
     '@storybook/addon-essentials',
     '@storybook/addon-interactions'
   ],
-  framework: '@storybook/react',
-  core: {
-    builder: '@storybook/builder-vite'
+  framework: {
+    name: '@storybook/react-vite',
+    options: {}
   },
-  features: {
-    emotionAlias: false
-  },
+  core: {},
   refs: {
-    '@chakra-ui/react': { disable: true }
+    '@chakra-ui/react': {
+      disable: true
+    }
   },
   typescript: {
     reactDocgen: 'react-docgen-typescript'
   },
-
-  viteFinal(viteConfig) {
-    return mergeConfig(viteConfig, {
+  docs: {
+    autodocs: true
+  },
+  viteFinal(config) {
+    return mergeConfig(config, {
       build: {
-        target: browserslistToEsbuild(),
-        sourcemap: false
-      },
-      resolve: {
-        alias: {
-          '~': path.resolve(__dirname, '../src')
+        sourcemap: false,
+        rollupOptions: {
+          maxParallelFileOps: Math.max(1, cpus().length - 1),
+          output: {
+            manualChunks: (id: string): string | void =>
+              id.includes('node_modules') ? 'vendor' : undefined
+          },
+          cache: false
         }
       }
     });

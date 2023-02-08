@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import { type DecoratorFn } from '@storybook/react';
+import { type Decorator } from '@storybook/react';
 import { useAsync } from 'react-use';
 
 import { initI18n } from '~/services/i18n';
@@ -8,7 +8,7 @@ import { type AppLocale } from '~/services/i18n/i18n.types';
 
 import { ParamKey } from '../constants';
 
-export const WithI18n: DecoratorFn = (Story, context) => {
+export const WithI18n: Decorator = (Story, context) => {
   const { globals } = context;
   const locale: AppLocale | undefined = globals[ParamKey.Locale];
   const {

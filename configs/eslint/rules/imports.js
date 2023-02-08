@@ -18,8 +18,10 @@ module.exports = {
         '**/*.test.{js,jsx,ts,tsx}',
         '**/*.spec.{js,jsx,ts,tsx}',
         '**/setupTests.{js,jsx,ts,tsx}',
-        './tools/**/*.{js,jsx,ts,tsx}',
-        './tools/*.{js,jsx,ts,tsx}'
+        './configs/**/*.{js,jsx,ts,tsx}',
+        './configs/*.{js,jsx,ts,tsx}',
+        './scripts/**/*.{js,jsx,ts,tsx}',
+        './scripts/*.{js,jsx,ts,tsx}'
       ]
     }
   ],

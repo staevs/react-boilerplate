@@ -1,6 +1,6 @@
 # <PROJECT_NAME>
 
-![Build](https://github.com/cybergizer-hq/cyber-front-template/actions/workflows/main.yml/badge.svg?branch=main)
+![Build](https://github.com/staevs/react-boilerplate/actions/workflows/main.yml/badge.svg?branch=main)
 
 ## <PROJECT_LINKS>
 
@@ -8,7 +8,7 @@
 
 ### Installing dependencies
 
-> Before start make sure that you're using the right node version.
+> Before start, make sure that you're using the right node version.
 > You can use [nvm](https://github.com/nvm-sh/nvm) to change a node version to one that specified inside `.nvmrc`.
 
 - Run command `npm ci`
@@ -21,18 +21,18 @@
 
 ## Testing application
 
-We are using [Vitest](https://vitest.dev/) for unit tests and [Cypress](https://docs.cypress.io/guides/getting-started/installing-cypress) for integration tests
+We're using [Vitest](https://vitest.dev/) for unit tests and [Cypress](https://docs.cypress.io/guides/getting-started/installing-cypress) for integration tests
 
-| Command                  | Description                                                                    |
-| ------------------------ | ------------------------------------------------------------------------------ |
-| `build:test`             | Builds application to use in Cypress tests.                                    |
-| `cy:open`                | Opens Cypress UI.                                                              |
-| `cy:run`                 | Runs Cypress tests.                                                            |
-| `start:test`             | Runs dev server to use in Cypress tests.                                       |
-| `test`                   | Runs unit tests in watch mode.                                                 |
-| `test:ci`                | Runs unit tests once and outputs test coverage.                                |
-| `test:integration:debug` | Builds application to use in Cypress tests and serves files from build folder. |
-| `preview:test`           | Serves files from build folder to use in Cypress tests.                        |
+| Command                          | Description                                                                    |
+| -------------------------------- | ------------------------------------------------------------------------------ |
+| `npm run build:test`             | Builds application to use in Cypress tests.                                    |
+| `npm run cy:open`                | Opens Cypress UI.                                                              |
+| `npm run cy:run`                 | Runs Cypress tests.                                                            |
+| `npm run start:test`             | Runs dev server to use in Cypress tests.                                       |
+| `npm run test`                   | Runs unit tests in watch mode.                                                 |
+| `npm run test:ci`                | Runs unit tests once and outputs test coverage.                                |
+| `npm run test:integration:debug` | Builds application to use in Cypress tests and serves files from build folder. |
+| `npm run preview:test`           | Serves files from build folder to use in Cypress tests.                        |
 
 ### Running unit tests
 
@@ -92,37 +92,32 @@ Project follows [Conventional Commits specification](https://www.conventionalcom
 ## Code Style Guide:
 
 - Code style is inspired by [Airbnb Guide](https://github.com/airbnb/javascript#airbnb-javascript-style-guide)
-- If you find that some rules are harmful or missing raise a PR with your proposal
+- If you find that some rules are harmful or missing, raise a PR with your proposal
 
-| Command                     | Description                                                                                          |
-| --------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `npm run audit:deadcode`    | Check for unused exports from modules. Results would be written into `deadcode.txt` in project root. |
-| `npm run audit:deadcode:ci` | Same as above but for CI. Results would be displayed in workflow summary.                            |
-| `npm run lint`              | Runs code style and format checks and prints results to console.                                     |
-| `npm run format`            | Runs code style and format checks and tries to autofix problems                                      |
+| Command                  | Description                                                                                          |
+| ------------------------ | ---------------------------------------------------------------------------------------------------- |
+| `npm run audit:deadcode` | Check for unused exports from modules. Results would be written into `deadcode.txt` in project root. |
+| `npm run lint`           | Runs code style and format checks and prints results to console.                                     |
+| `npm run format`         | Runs code style and format checks and tries to autofix problems                                      |
 
 ## Internationalization
 
-- We are using [react-i18next](https://react.i18next.com/)
+- We're using [react-i18next](https://react.i18next.com/)
 - Date formats: [date-fns](https://date-fns.org/), [date formats](https://date-fns.org/v2.29.3/docs/format)
 
 ## Storybook
 
-- We are using [Storybook](https://storybook.js.org/docs/react/writing-stories/introduction) for building UI components and pages.
-- We are hosting Storyboook on [Chromatic](https://www.chromatic.com/library?appId=63494e41f8bea2d9d59c6279)
+- We're using a [Storybook](https://storybook.js.org/docs/react/writing-stories/introduction).
 
 | Command                   | Description                             |
 | ------------------------- | --------------------------------------- |
 | `npm run storybook`       | Launches Storybook in development mode. |
 | `npm run build-storybook` | Builds Storybook for hosting.           |
-| `npm run chromatic`       | Updates Storybook in Chromatic project. |
 
 ## Releasing
 
-- Manually trigger `Release` workflow from actions tab on `main` branch
+- Manually trigger `Release` workflow from `Actions` tab on `main` branch
 
-| Command                    | Description                                                                                                                                |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| `npm run build`            | Builds project for production use.                                                                                                         |
-| `npm run build:staging`    | Builds project for staging use. Pass [--base](https://vitejs.dev/config/shared-options.html#base) option while building application in CI. |
-| `npm run semantic-release` | Creates a tag and release notes for a new version. Should be triggered on main branch within CI.                                           |
+| Command         | Description                        |
+| --------------- | ---------------------------------- |
+| `npm run build` | Builds project for production use. |
