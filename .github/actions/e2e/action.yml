@@ -1,0 +1,25 @@
+name: 'End-to-End tests'
+description: 'Performs Cypress tests'
+
+runs:
+  using: "composite"
+  steps:
+    - name: Setup 🔧
+      uses: ./.github/actions/setup
+
+    - name: Verify Cypress install 🔧
+      shell: bash
+      run: npm run cy:verify
+
+    - name: Cypress run
+      uses: cypress-io/github-action@v5
+      env:
+        CYPRESS_VERIFY_TIMEOUT: '60000'
+        NODE_OPTIONS: '--max-old-space-size=2560'
+        NODE_ENV: 'production'
+      with:
+        browser: electron
+        build: npm run build:test
+        install: false
+        start: npm run preview:test
+        wait-on: 'http://localhost:3000'

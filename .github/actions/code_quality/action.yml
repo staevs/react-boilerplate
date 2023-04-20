@@ -1,0 +1,39 @@
+name: 'Code quality'
+description: 'Performs code quality checks'
+
+runs:
+  using: "composite"
+  steps:
+    - name: Setup 🔧
+      uses: ./.github/actions/setup
+
+    - name: Validate all commits from PR
+      shell: bash
+      if: github.event_name == 'pull_request'
+      run: npx commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
+
+    - name: Run linter
+      shell: bash
+      run: npm run lint
+
+    - name: Check dead code
+      shell: bash
+      run: ./.github/actions/code_quality/checkDeadCode.sh
+
+    - name: Run tests
+      shell: bash
+      run: npm run test:ci
+
+    - name: Test Report
+      uses: dorny/test-reporter@v1
+      if: success() || failure()
+      with:
+        name: Unit Tests
+        path: junit/vitest.xml
+        reporter: jest-junit
+
+    - name: Check build is passing
+      shell: bash
+      env:
+        NODE_OPTIONS: '--max-old-space-size=2560'
+      run: npm run build

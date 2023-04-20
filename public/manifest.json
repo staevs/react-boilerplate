@@ -1,0 +1,30 @@
+{
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "icons": [
+    {
+      "sizes": "24x24 16x16",
+      "src": "favicon.ico",
+      "type": "image/x-icon"
+    },
+    {
+      "sizes": "64x64 32x32",
+      "src": "favicon-32x32.png",
+      "type": "image/x-icon"
+    },
+    {
+      "sizes": "192x192",
+      "src": "logo192.png",
+      "type": "image/png"
+    },
+    {
+      "sizes": "512x512",
+      "src": "logo512.png",
+      "type": "image/png"
+    }
+  ],
+  "name": "Template",
+  "short_name": "Template",
+  "start_url": "/index.html",
+  "theme_color": "#EF4523"
+}

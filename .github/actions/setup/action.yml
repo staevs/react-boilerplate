@@ -1,0 +1,14 @@
+name: 'Setup environment'
+description: 'Configure node version and install dependencies'
+
+runs:
+  using: "composite"
+  steps:
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      with:
+        node-version-file: '.nvmrc'
+
+    - name: Install 🔧
+      shell: bash
+      run: npm ci
