@@ -44,7 +44,8 @@ export const IssueForm = () => {
     <VStack
       as="form"
       margin="auto"
-      width="50vh"
+      width="50vw"
+      minW="300px"
       gap="10px"
       onSubmit={(event) => {
         event.preventDefault();
