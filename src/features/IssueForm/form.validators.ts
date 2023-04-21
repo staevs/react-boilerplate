@@ -6,6 +6,12 @@ import {
 const isValidEmail = (input: string) =>
   /^[\w-\.]+@(?<domain>[\w-]+\.)+[\w-]{2,4}$/.test(input.trim());
 
+const isValidCCEmails = (emails: string) =>
+  !emails.trim() || emails.split(',').every(isValidEmail);
+
+const isValidDescription = (description: string, template = '') =>
+  description.trim().length > template.length;
+
 export function validateForm(formValues: FormValues) {
   const errors: FormErrors = {};
 
@@ -17,18 +23,11 @@ export function validateForm(formValues: FormValues) {
     errors.issue = 'Mandatory field';
   }
 
-  if (
-    !formValues.description.trim() ||
-    (formValues.issue?.template &&
-      formValues.description.trim().length <= formValues.issue.template.length)
-  ) {
+  if (!isValidDescription(formValues.description, formValues.issue?.template)) {
     errors.description = 'Text cannot be empty.';
   }
 
-  if (
-    formValues.emails.trim() &&
-    !formValues.emails.split(',').every(isValidEmail)
-  ) {
+  if (!isValidCCEmails(formValues.emails)) {
     errors.emails = 'Some email addresses are incorrect';
   }
 
