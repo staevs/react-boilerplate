@@ -23,7 +23,7 @@
     "start:test": "vite --mode test",
     "storybook": "storybook dev -p 6006",
     "test": "vitest",
-    "test:ci": "vitest run --coverage --reporter=junit --outputFile.junit=./junit/vitest.xml",
+    "test:ci": "vitest run --reporter=junit --outputFile.junit=./junit/vitest.xml",
     "test:integration:debug": "npm run build:test && npm run preview:test"
   },
   "dependencies": {
