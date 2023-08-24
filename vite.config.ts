@@ -82,8 +82,9 @@ export default defineConfig(({ mode }) => {
       css: true,
       passWithNoTests: true,
       reporters: 'default',
-      minThreads: 1,
-      maxThreads: 1
+      server: {
+        ...serverConfig
+      }
     }
   };
 });
