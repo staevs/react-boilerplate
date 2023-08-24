@@ -3,9 +3,10 @@ import path from 'path';
 import react from '@vitejs/plugin-react-swc';
 import browserslistToEsbuild from 'browserslist-to-esbuild';
 import { visualizer } from 'rollup-plugin-visualizer';
-import { defineConfig, type PluginOption } from 'vite';
+import { type PluginOption } from 'vite';
 import eslint from 'vite-plugin-eslint';
 import svgr from 'vite-plugin-svgr';
+import { defineConfig } from 'vitest/config';
 
 const getSvgrPluginOptions = () => ({
   svgrOptions: {
@@ -36,7 +37,10 @@ export default defineConfig(({ mode }) => {
   const serverConfig = {
     port: 3000,
     host: true,
-    strictPort: true
+    strictPort: true,
+    deps: {
+      fallbackCJS: true
+    }
   };
 
   const plugins: PluginOption[] = [
@@ -77,13 +81,7 @@ export default defineConfig(({ mode }) => {
       setupFiles: './src/setupTests.ts',
       css: true,
       passWithNoTests: true,
-      deps: {
-        fallbackCJS: true
-      },
-      reporters: 'default',
-      coverage: {
-        src: ['src']
-      }
+      reporters: 'default'
     }
   };
 });
