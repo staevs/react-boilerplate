@@ -24,14 +24,6 @@ runs:
       shell: bash
       run: npm run test:ci
 
-    - name: Test Report
-      uses: dorny/test-reporter@v1
-      if: success() || failure()
-      with:
-        name: Unit Tests
-        path: junit/vitest.xml
-        reporter: jest-junit
-
     - name: Check build is passing
       shell: bash
       env:
