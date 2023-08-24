@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="vitest tests" tests="1" failures="0" errors="0" time="2.882">
+    <testsuite name="pages/Home/Home.test.tsx" timestamp="2023-08-24T15:27:29.378Z" hostname="YSTANISLAU-MBBY" tests="1" failures="0" errors="0" skipped="0" time="0.008">
+        <testcase classname="pages/Home/Home.test.tsx" name="should render sample" time="0.007">
+        </testcase>
+    </testsuite>
+</testsuites>

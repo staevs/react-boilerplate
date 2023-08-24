@@ -81,7 +81,9 @@ export default defineConfig(({ mode }) => {
       setupFiles: './src/setupTests.ts',
       css: true,
       passWithNoTests: true,
-      reporters: 'default'
+      reporters: 'default',
+      minThreads: 1,
+      maxThreads: 1
     }
   };
 });
