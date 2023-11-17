@@ -4,7 +4,11 @@ module.exports = {
     'error',
     {
       selector: 'default',
-      format: ['camelCase']
+      format: ['camelCase'],
+      filter: {
+        regex: '^React',
+        match: false
+      }
     },
     {
       selector: [

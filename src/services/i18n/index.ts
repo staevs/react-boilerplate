@@ -2,9 +2,7 @@ import i18nBase from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
 import { type AppLocale, type I18nNamespaces } from './i18n.types';
-import en from './locales/en.json';
-
-const namespaces = Object.keys(en);
+import type en from './locales/en.json';
 
 i18nBase.use(initReactI18next).use({
   type: 'backend',
@@ -29,15 +27,17 @@ i18nBase.use(initReactI18next).use({
 });
 
 export const initI18n = async (initialLng?: AppLocale) => {
+  const enResource = (await import('./locales/en.json')) as typeof en;
+
   await i18nBase.init({
     fallbackLng: ['en'],
     partialBundledLanguages: true,
     lng: initialLng || 'en',
     resources: {
-      en
+      en: enResource
     },
 
-    ns: namespaces,
+    ns: Object.keys(enResource),
     defaultNS: 'translations',
 
     interpolation: {
