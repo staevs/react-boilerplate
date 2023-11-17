@@ -22,4 +22,4 @@ runs:
         build: npm run build:test
         install: false
         start: npm run preview:test
-        wait-on: 'http://[::1]:3000'
+        wait-on: 'http://127.0.0.1:3000'

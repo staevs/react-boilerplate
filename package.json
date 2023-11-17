@@ -17,7 +17,7 @@
     "gen:theme-typings": "chakra-cli tokens src/shared/theme/theme.ts",
     "postinstall": "husky install && npm run gen:theme-typings",
     "lint": "node ./scripts/lint.mjs",
-    "preview": "vite preview",
+    "preview": "vite preview --host",
     "preview:test": "npm run preview -- --mode test",
     "start": "vite",
     "start:test": "vite --mode test",
