@@ -6,7 +6,7 @@ import { visualizer } from 'rollup-plugin-visualizer';
 import { type PluginOption } from 'vite';
 import eslint from 'vite-plugin-eslint';
 import svgr from 'vite-plugin-svgr';
-import { defineConfig } from 'vitest/config';
+import { defineConfig, type UserConfig } from 'vitest/config';
 
 const getSvgrPluginOptions = () => ({
   svgrOptions: {
@@ -34,20 +34,17 @@ const getVisualizerPluginOptions = () => ({
 export default defineConfig(({ mode }) => {
   const isProductionBuild = !['development', 'test'].includes(mode);
 
-  const serverConfig = {
+  const serverConfig: UserConfig['server'] = {
     port: 3000,
     host: true,
-    strictPort: true,
-    deps: {
-      fallbackCJS: true
-    }
+    strictPort: true
   };
 
   const plugins: PluginOption[] = [
     svgr(getSvgrPluginOptions()),
     react(),
     eslint(getEslintPluginOptions(isProductionBuild)),
-    visualizer(getVisualizerPluginOptions())
+    visualizer(getVisualizerPluginOptions()) as PluginOption
   ];
 
   const target = browserslistToEsbuild();
@@ -81,10 +78,7 @@ export default defineConfig(({ mode }) => {
       setupFiles: './src/setupTests.ts',
       css: true,
       passWithNoTests: true,
-      reporters: 'default',
-      server: {
-        ...serverConfig
-      }
+      reporters: 'default'
     }
   };
 });
