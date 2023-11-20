@@ -97,7 +97,7 @@
     "semantic-release": "22.0.8",
     "storybook": "7.5.3",
     "ts-prune": "0.10.3",
-    "typescript": "5.2.2",
+    "typescript": "5.3.2",
     "vite": "5.0.0",
     "vite-plugin-eslint": "1.8.1",
     "vite-plugin-svgr": "4.2.0",
