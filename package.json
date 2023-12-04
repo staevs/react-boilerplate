@@ -87,7 +87,7 @@
     "execa": "8.0.1",
     "fs-extra": "11.1.1",
     "husky": "8.0.3",
-    "jsdom": "23.0.0",
+    "jsdom": "23.0.1",
     "lint-staged": "15.1.0",
     "postcss": "8.4.31",
     "prettier": "3.1.0",
