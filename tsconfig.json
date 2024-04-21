@@ -50,7 +50,7 @@
     ".storybook/*.tsx",
     ".storybook/**/*.json",
     ".storybook/*.json",
-    "vite.config.ts",
+    "vite.config.mts",
     "cypress.config.ts"
   ],
   "ts-node": {
